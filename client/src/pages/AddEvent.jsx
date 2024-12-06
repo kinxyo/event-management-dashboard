@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaLongArrowAltLeft } from "react-icons/fa";
 
 const AddEvent = () => {
     const [title, setTitle] = useState('');
@@ -23,7 +24,7 @@ const AddEvent = () => {
 
     return (
         <main className='min-h-screen grid place-items-center'>
-            <button onClick={() => navigate(-1)} >go back</button>
+                        <button className='flex items-center gap-2' onClick={() => navigate(-1)} > <FaLongArrowAltLeft/>Go Back</button>
         <form onSubmit={handleSubmit} className={"bg-slate-200 flex flex-col gap-4 items-center p-8 rounded-xl"}>
             <div>
                 <label htmlFor="title">Title:</label>
