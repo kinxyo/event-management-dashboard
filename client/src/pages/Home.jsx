@@ -8,9 +8,7 @@ const  Home = () => {
         <div>
             <h1>Home</h1>
 
-
-            <button onClick={() => navigate('/events/1')}>EventCard</button>
-
+            <button onClick={() => navigate('/events/add')}>Create Event</button>
         </div>
     )
 }

@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const EventPage = () => {
     const { id } = useParams();
     const [event, setEvent] = useState({});
+
+    const navigate = useNavigate();
+
     useEffect(() => {
         const fetchEvent = async () => {
         const response =
@@ -21,6 +24,7 @@ const EventPage = () => {
 
     return (
         <div className="flex flex-col">
+            <button onClick={() => navigate(-1)} >go back</button>
             <h1 className="text-2xl">Event</h1>
             <h1>{event.title}</h1>
             <p>{event.description}</p>
