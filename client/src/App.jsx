@@ -1,13 +1,11 @@
-import { useState } from 'react'
 import './App.css'
+import Routing from './router'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <h1 className='text-rose-400'>askdjas</h1>
-    </>
+    <div>
+      <Routing />
+    </div>
   )
 }
 
