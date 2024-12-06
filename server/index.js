@@ -5,12 +5,12 @@ const app = express();
 import authRoutes from './routes/authRoutes.js';
 import formRoutes from './routes/formRoutes.js';
 import connectDB from './config/db.js';
-import setupSocketIO from "./src/config/socket";
+// import setupSocketIO from "./src/config/socket";
 
 // Load environment variables
 dotenv.config();
 
-const io = setupSocketIO(server);
+// const io = setupSocketIO(server);
 
 const attachSocketIO = (io) => {
     return (req, res, next) => {
@@ -19,7 +19,7 @@ const attachSocketIO = (io) => {
     };
 };
 
-app.use(attachSocketIO(io));
+// app.use(attachSocketIO(io));
 
 // Middleware
 app.use(express.json());
