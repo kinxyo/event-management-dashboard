@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import EventCard from './eventCard';
 
 const Home = () => {
@@ -61,15 +62,23 @@ const Home = () => {
                 </div>
                 <h2 className="text-2xl font-bold mb-4">Events</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {filteredEvents.map((event, index) => (
-                        <div key={index} className={event.date === currentDate ? 'animate-pulse' : ''}>
-                            <EventCard
-                                title={event.title}
-                                date={event.date}
-                                description={event.description}
-                            />
-                        </div>
-                    ))}
+                    <AnimatePresence>
+                        {filteredEvents.map((event, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: 20 }}
+                                className={event.date === currentDate ? 'animate-pulse' : ''}
+                            >
+                                <EventCard
+                                    title={event.title}
+                                    date={event.date}
+                                    description={event.description}
+                                />
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
                 </div>
             </div>
         </main>
