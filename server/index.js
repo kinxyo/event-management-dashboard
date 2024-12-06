@@ -4,9 +4,21 @@ import cors from 'cors';
 const app = express();
 import authRoutes from './routes/authRoutes.js';
 import connectDB from './config/db.js';
+import setupSocketIO from "./src/config/socket";
 
 // Load environment variables
 dotenv.config();
+
+const io = setupSocketIO(server);
+
+const attachSocketIO = (io) => {
+    return (req, res, next) => {
+        req.io = io;
+        next();
+    };
+};
+
+app.use(attachSocketIO(io));
 
 // Middleware
 app.use(express.json());
