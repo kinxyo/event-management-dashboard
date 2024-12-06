@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 const app = express();
 import authRoutes from './routes/authRoutes.js';
+import formRoutes from './routes/formRoutes.js';
 import connectDB from './config/db.js';
 
 // Load environment variables
@@ -10,6 +11,7 @@ dotenv.config();
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 // app.use(cors({
 //     origin: process.env.FRONTEND_URL,
 //     credentials: true,  // Allow cookies to be sent
@@ -21,6 +23,7 @@ app.get('/', (req, res) => {
 );
 
 app.use('/api/auth', authRoutes);
+app.use('/api/form', formRoutes);
 
 app.listen(8000, () => {
     connectDB();
