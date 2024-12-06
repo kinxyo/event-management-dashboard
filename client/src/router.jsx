@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import EventPage from './pages/Event';
 import Auth from './pages/Auth';
 
+
 const Routing = () => {
     return (
         <Routes>
