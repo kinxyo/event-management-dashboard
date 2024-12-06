@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+import { FaLongArrowAltLeft } from "react-icons/fa";
 const EventPage = () => {
     const { id } = useParams();
     const [event, setEvent] = useState({});
@@ -24,7 +25,7 @@ const EventPage = () => {
 
     return (
         <div className="flex flex-col">
-            <button onClick={() => navigate(-1)} >go back</button>
+                        <button className='flex items-center gap-2' onClick={() => navigate(-1)} > <FaLongArrowAltLeft/>Go Back</button>
             <h1 className="text-2xl">Event</h1>
             <h1>{event.title}</h1>
             <p>{event.description}</p>

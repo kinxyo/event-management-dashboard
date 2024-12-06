@@ -3,7 +3,7 @@ import Routing from './router'
 
 function App() {
   return (
-    <div>
+    <div className='min-h-screen bg-slate-300'>
       <Routing />
     </div>
   )
