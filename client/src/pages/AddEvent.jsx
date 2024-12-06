@@ -17,9 +17,9 @@ const AddEvent = () => {
         const newEvent = { title, description, venue, startDate, endDate, slotPricing, capacity };
         console.log(newEvent);
         // Optionally, send newEvent to an API endpoint
-        // axios.post('http://localhost:3000/events', newEvent)
-        //     .then(response => console.log(response))
-        //     .catch(error => console.error(error));
+        axios.post('http://localhost:8000/api/form/create', newEvent)
+            .then(response => console.log(response))
+            .catch(error => console.error(error));
     };
 
     return (
